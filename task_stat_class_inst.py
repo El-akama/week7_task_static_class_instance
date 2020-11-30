@@ -34,47 +34,38 @@
 # print(repr(cash))
 
 # task2
-# Велосипед.
-# Создайте класс Bike в котором будут инициализированы следующие атрибуты: 
-# self.cost
-# (стоимость)
-# self.make (производитель)
-# self.model (модель)
-# self.year (год выпуска)
-# self.condition (состояние)
-# self._sale_price = None (цена для продажи, по умолчанию None)
-# self.sold = False (продан или нет, по умолчания False)
-# Также укажите мин. прибыль, которая должна прийти с продажи велосипеда. Создайте метод
-# для указания цены для продажи, который принимает цену и если она меньше стоимости, то
-# ставит дефолтную цену для продажи (стоимость + мин. прибыль).
-# Для ремонта велосипеда будет использоваться метод service, которая принимает стоимость
-# ремонта и новое состояние велосипеда, соответственно продажная цена велосипеда
-# возрастает на столько, сколько обошелся ремонт и возвращает нынешнюю цену для продажи.
-# При продаже велосипеда будет использоваться метод sell, который меняет значение self.sold на
+# class Bike:
 
-# True и возвращает прибыль с продажи.
-# Допишите метод get_default_bike, который будет создавать дефолтный велосипед. Создайте
-# объект bike = Bike.get_default_bike() и используете его методы и получите значения всех его
-# атрибутов.
+#     minimum_profit = 1000
 
-class Bike:
-    def __init__(self, cost, make, model, year, condition, _sale_price, sold):
-        self.cost = cost
-        self.make = make
-        self.model = model
-        self.year = year
-        self.condition =condition
-        self._sale_price = None #(цена для продажи, по умолчанию None)
-        self.sold = False #(продан или нет, по умолчания False)
-      
-    def price(self, price, min_prof):
-        self._sale_price = price
-        self.min_prof = min_prof
-        if price < min_prof:
-            return min_prof + self.cost
-        else: 
-            return self._sale_price
+#     @classmethod
+#     def new_bike(cls):
+#         return cls(2000, 'red', 'kr', 2010, 'new')
 
-    def service(self, cost_repair, new_condition):
+#     def __init__(self, cost, make, model, year, condition, sale_price = None, sold = False):
+#         self.cost = cost
+#         self.make = make
+#         self.model = model
+#         self.year = year
+#         self.condition = condition
+#         self.sale_price = sale_price
+#         self.sold = sold
 
-        
+#     def price_sold(self, value):
+#         if value - self.cost < Bike.minimum_profit:
+#             self.sale_price = Bike.minimum_profit + self.cost
+#         elif value - self.cost > Bike.minimum_profit:
+#             self.sale_price = value
+
+#     def service(self, value):
+#         self.sale_price += value
+
+#     def sell(self):
+#         self.sold = True
+#         return self.sale_price
+
+
+# obj1 = Bike.new_bike()
+# obj1.price_sold(500)
+# obj1.service(500)
+# print(obj1.sell())
